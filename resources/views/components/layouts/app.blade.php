@@ -31,13 +31,8 @@
 
                 {{-- Search & Mobile Menu --}}
                 <div class="flex items-center gap-4">
-                    <div class="relative hidden md:block">
-                        <input type="text" placeholder="Search stores or products..." 
-                            class="bg-white/20 border-none rounded-full px-4 py-2 text-white placeholder-white/70 focus:ring-2 focus:ring-pastel-yellow focus:bg-white/30 transition-all w-64 text-sm"
-                        >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-white/70">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                        </svg>
+                    <div class="hidden md:block">
+                        <livewire:global-search />
                     </div>
                     <button class="md:hidden text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
