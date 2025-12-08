@@ -28,6 +28,8 @@ class ProductsRelationManager extends RelationManager
                     ->prefix('$'),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->disk('public')
+                    ->visibility('public')
                     ->directory('products'),
             ]);
     }

@@ -28,6 +28,8 @@ class StoreResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('logo')
                     ->image()
+                    ->disk('public')
+                    ->visibility('public')
                     ->directory('stores'),
                 Forms\Components\RichEditor::make('description')
                     ->columnSpanFull(),
