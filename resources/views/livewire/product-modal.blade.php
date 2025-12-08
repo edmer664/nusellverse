@@ -71,12 +71,16 @@
                                 </div>
 
                                 <div class="space-y-4 pt-6 border-t border-slate-100">
-                                    <button class="w-full bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-4 px-6 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-2 text-lg">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                                        </svg>
-                                        Order Now
-                                    </button>
+                                    @if($product->store && $product->store->order_instructions)
+                                        <div class="bg-pastel-cream p-4 rounded-lg border border-pastel-cream-dark">
+                                            <h4 class="font-bold text-slate-700 mb-2">How to Order</h4>
+                                            <div class="text-sm text-slate-600 prose prose-sm">{!! $product->store->order_instructions !!}</div>
+                                        </div>
+                                    @else
+                                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 text-center text-slate-500 italic">
+                                            No specific order instructions provided by this store.
+                                        </div>
+                                    @endif
                                     <div class="text-center">
                                         <span class="text-xs text-slate-400">Sold by </span>
                                         <a href="{{ route('stores.show', $product->store_id) }}" class="text-sm font-bold text-slate-600 hover:text-pastel-blue transition-colors">
