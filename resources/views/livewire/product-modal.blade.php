@@ -62,7 +62,7 @@
                             <div class="w-full md:w-1/2 p-8 md:p-12">
                                 <h3 class="text-3xl font-bold text-slate-900 mb-2">{{ $product->name }}</h3>
                                 <div class="flex items-center gap-2 mb-6">
-                                    <span class="text-2xl font-bold text-pastel-blue">${{ number_format($product->price, 2) }}</span>
+                                    <span class="text-2xl font-bold text-pastel-blue">PHP {{ number_format($product->price, 2) }}</span>
                                     <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded-full uppercase tracking-wide">In Stock</span>
                                 </div>
                                 

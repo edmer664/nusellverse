@@ -39,7 +39,7 @@
                                 <span class="bg-pastel-yellow text-pastel-blue-dark px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide">Featured</span>
                                 <h3 class="text-4xl md:text-5xl font-bold text-slate-800">{{ $product->name }}</h3>
                                 <p class="text-lg text-slate-600 line-clamp-2">{!! $product->description !!}</p>
-                                <div class="text-3xl font-bold text-pastel-blue">${{ number_format($product->price, 2) }}</div>
+                                <div class="text-3xl font-bold text-pastel-blue">PHP {{ number_format($product->price, 2) }}</div>
                                 <button @click="$dispatch('open-product-modal', { productId: {{ $product->id }} })" class="inline-block bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg cursor-pointer">
                                     View Details
                                 </button>
