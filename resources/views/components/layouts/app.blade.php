@@ -13,7 +13,7 @@
 <body class="bg-pastel-cream font-sans text-slate-800 antialiased">
     <div class="min-h-screen flex flex-col">
         {{-- Header --}}
-        <header class="bg-pastel-blue sticky top-0 z-50 shadow-md">
+        <header class="bg-pastel-blue sticky top-0 z-50 shadow-md" x-data="{ mobileMenuOpen: false }">
             <div class="container mx-auto px-4 py-4 md:py-6 flex items-center justify-between">
                 {{-- Logo & Name --}}
                 <a href="{{ route('home') }}" class="flex items-center gap-2 group">
@@ -24,7 +24,7 @@
                 {{-- Desktop Nav --}}
                 <nav class="hidden md:flex items-center gap-8 text-white font-medium">
                     <a href="{{ route('home') }}" class="hover:text-pastel-yellow transition-colors">Home</a>
-                    <a href="#" class="hover:text-pastel-yellow transition-colors">About</a>
+                    <a href="{{ route('about') }}" class="hover:text-pastel-yellow transition-colors">About</a>
                 </nav>
 
                 {{-- Search & Mobile Menu --}}
@@ -32,11 +32,20 @@
                     <div class="hidden md:block">
                         <livewire:global-search />
                     </div>
-                    <button class="md:hidden text-white">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
+                </div>
+            </div>
+
+            {{-- Mobile Menu --}}
+            <div x-show="mobileMenuOpen" style="display: none;" x-transition class="md:hidden bg-pastel-blue border-t border-white/10 text-white p-4 space-y-4">
+                <a href="{{ route('home') }}" class="block hover:text-pastel-yellow transition-colors">Home</a>
+                <a href="{{ route('about') }}" class="block hover:text-pastel-yellow transition-colors">About</a>
+                <div class="pt-2">
+                    <livewire:global-search />
                 </div>
             </div>
         </header>
@@ -51,8 +60,8 @@
             <div class="container mx-auto px-4 text-center">
                 <p class="font-medium">&copy; {{ date('Y') }} SellVerse. All rights reserved.</p>
                 <div class="mt-4 flex justify-center gap-6 text-sm opacity-80">
-                    <a href="#" class="hover:underline">Privacy Policy</a>
-                    <a href="#" class="hover:underline">Terms of Service</a>
+                    <a href="{{ route('privacy') }}" class="hover:underline">Privacy Policy</a>
+                    <a href="{{ route('terms') }}" class="hover:underline">Terms of Service</a>
                 </div>
             </div>
         </footer>
