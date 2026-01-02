@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'Nusellverse' }}</title>
+    <title>{{ $title ?? 'SellVerse' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -17,10 +17,8 @@
             <div class="container mx-auto px-4 py-4 md:py-6 flex items-center justify-between">
                 {{-- Logo & Name --}}
                 <a href="{{ route('home') }}" class="flex items-center gap-2 group">
-                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-                        <span class="text-pastel-blue text-xl font-bold">N</span>
-                    </div>
-                    <span class="text-white text-2xl font-bold tracking-tight shadow-black/5 drop-shadow-sm">Nusellverse</span>
+                    <img src="{{ asset('logo.png') }}" alt="Nusellverse Logo" class="h-10 w-auto group-hover:scale-105 transition-transform">
+                    <span class="text-white text-2xl font-bold tracking-tight shadow-black/5 drop-shadow-sm">SellVerse</span>
                 </a>
 
                 {{-- Desktop Nav --}}
@@ -51,7 +49,7 @@
         {{-- Footer --}}
         <footer class="bg-pastel-blue-dark text-white py-8 mt-auto">
             <div class="container mx-auto px-4 text-center">
-                <p class="font-medium">&copy; {{ date('Y') }} Nusellverse. All rights reserved.</p>
+                <p class="font-medium">&copy; {{ date('Y') }} SellVerse. All rights reserved.</p>
                 <div class="mt-4 flex justify-center gap-6 text-sm opacity-80">
                     <a href="#" class="hover:underline">Privacy Policy</a>
                     <a href="#" class="hover:underline">Terms of Service</a>
