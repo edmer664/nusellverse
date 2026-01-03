@@ -8,6 +8,8 @@ use Livewire\Component;
 class StoreDetail extends Component
 {
     public Store $store;
+    public $minPrice;
+    public $maxPrice;
 
     public function mount(Store $store)
     {
@@ -16,8 +18,13 @@ class StoreDetail extends Component
 
     public function render()
     {
+        $products = $this->store->products()
+            ->when($this->minPrice, fn($query) => $query->where('price', '>=', $this->minPrice))
+            ->when($this->maxPrice, fn($query) => $query->where('price', '<=', $this->maxPrice))
+            ->get();
+
         return view('livewire.store-detail', [
-            'products' => $this->store->products,
+            'products' => $products,
         ]);
     }
 }

@@ -42,9 +42,18 @@
 
     {{-- Products Grid --}}
     <section>
-        <div class="flex items-center justify-between mb-8">
-            <h2 class="text-3xl font-bold text-pastel-blue-dark tracking-tight">Products</h2>
-            <div class="h-1 flex-grow ml-6 bg-gradient-to-r from-pastel-blue/30 to-transparent rounded-full"></div>
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+            <div class="flex items-center gap-4 flex-grow">
+                <h2 class="text-3xl font-bold text-pastel-blue-dark tracking-tight">Products</h2>
+                <div class="h-1 flex-grow bg-gradient-to-r from-pastel-blue/30 to-transparent rounded-full hidden md:block"></div>
+            </div>
+            
+            <div class="flex items-center gap-2 bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+                <span class="text-sm font-medium text-slate-600 pl-2">Price:</span>
+                <input type="number" wire:model.live.debounce.500ms="minPrice" placeholder="Min" class="w-24 rounded-md border-slate-200 text-sm focus:border-pastel-blue focus:ring-pastel-blue">
+                <span class="text-slate-400">-</span>
+                <input type="number" wire:model.live.debounce.500ms="maxPrice" placeholder="Max" class="w-24 rounded-md border-slate-200 text-sm focus:border-pastel-blue focus:ring-pastel-blue">
+            </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
