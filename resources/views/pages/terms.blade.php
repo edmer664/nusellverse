@@ -3,20 +3,34 @@
         <h1 class="text-3xl font-bold text-gray-900 mb-6">Terms of Service</h1>
         
         <div class="prose max-w-none text-gray-600">
+            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Eligibility</h2>
             <p class="mb-4">
-                Welcome to our Terms of Service. Please read these terms carefully before using our services.
+                Only bonafide NU Fairview students are allowed to use Sellverse as buyers or sellers.
             </p>
-            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">1. Acceptance of Terms</h2>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Acceptable Use</h2>
             <p class="mb-4">
-                By accessing or using our service, you agree to be bound by these terms.
+                Users agree to:
             </p>
-            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">2. User Responsibilities</h2>
+            <ul class="list-disc list-inside mb-4 ml-4">
+                <li>Provide accurate information</li>
+                <li>Engage in respectful and honest transactions</li>
+                <li>Avoid fraudulent, misleading, or harmful activities</li>
+            </ul>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Limitation of Liability</h2>
             <p class="mb-4">
-                You are responsible for your use of the service and for any content you provide.
+                Sellverse acts only as a platform connecting buyers and sellers. The website is not responsible for disputes, losses, or damages arising from transactions between users.
             </p>
-             <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">3. Changes to Terms</h2>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Account Suspension</h2>
             <p class="mb-4">
-                We reserve the right to modify these terms at any time. We will notify users of any changes.
+                Sellverse reserves the right to suspend or remove accounts that violate these terms or compromise the safety of the community.
+            </p>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Changes to Terms</h2>
+            <p class="mb-4">
+                Sellverse may update these Terms of Service as needed. Continued use of the platform indicates acceptance of any changes.
             </p>
         </div>
     </div>

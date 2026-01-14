@@ -3,20 +3,33 @@
         <h1 class="text-3xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
         
         <div class="prose max-w-none text-gray-600">
+            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Information We Collect</h2>
             <p class="mb-4">
-               Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you.
+                Sellverse may collect basic information such as:
             </p>
-            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">1. Information We Collect</h2>
+            <ul class="list-disc list-inside mb-4 ml-4">
+                <li>Name</li>
+                <li>NU Fairview affiliation</li>
+                <li>Contact details</li>
+                <li>Business information (for sellers)</li>
+            </ul>
             <p class="mb-4">
-                We only collect information about you if we have a reason to do so – for example, to provide our services, to communicate with you, or to make our services better.
+                This information is collected solely to support platform functionality and user interaction.
             </p>
-            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">2. How We Use Information</h2>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">How We Use Your Information</h2>
             <p class="mb-4">
-                We use the information we collect to provide our services to you and make them better, develop new products, and protect our users.
+                Your information is used to:
             </p>
-             <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">3. Security</h2>
+            <ul class="list-disc list-inside mb-4 ml-4">
+                <li>Verify NU Fairview membership</li>
+                <li>Enable communication between buyers and sellers</li>
+                <li>Improve website usability and services</li>
+            </ul>
+
+            <h2 class="text-xl font-semibold text-gray-800 mt-6 mb-3">Security</h2>
             <p class="mb-4">
-                We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure.
+                Sellverse complies with the Data Privacy Act of 2012 (RA 10173) and ensures that all personal information is securely stored, confidential, and used only for legitimate platform purposes.
             </p>
         </div>
     </div>
