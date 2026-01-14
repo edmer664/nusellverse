@@ -48,9 +48,16 @@
                                             <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-bold">Out of Stock</span>
                                         @endif
                                     </div>
-                                    <button @click="$dispatch('open-product-modal', { productId: {{ $product->id }} })" class="inline-block w-max bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg cursor-pointer">
-                                        View Details
-                                    </button>
+                                    <div class="flex gap-3">
+                                        <button @click="$dispatch('open-product-modal', { productId: {{ $product->id }} })" class="inline-block w-max bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg cursor-pointer">
+                                            View Details
+                                        </button>
+                                        <button @click="$store.cart.toggle({id: {{ $product->id }}, name: `{{ $product->name }}`, price: {{ $product->price }}, image: `{{ $product->image ? Storage::url($product->image) : '' }}`})" 
+                                                class="inline-block w-max font-bold py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg cursor-pointer flex items-center gap-2"
+                                                :class="$store.cart.has({{ $product->id }}) ? 'bg-red-100 text-red-600 hover:bg-red-200' : 'bg-white text-pastel-blue hover:bg-gray-50'">
+                                            <span x-text="$store.cart.has({{ $product->id }}) ? 'Remove' : 'Add to Cart'"></span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

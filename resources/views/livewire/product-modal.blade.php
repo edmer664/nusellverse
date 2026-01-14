@@ -70,6 +70,19 @@
                                     @endif
                                 </div>
                                 
+                                <div class="mb-6">
+                                     <button @click="$store.cart.toggle({id: {{ $product->id }}, name: `{{ $product->name }}`, price: {{ $product->price }}, image: `{{ $product->image ? Storage::url($product->image) : '' }}`})"
+                                        class="w-full md:w-auto font-bold py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                                        :class="$store.cart.has({{ $product->id }}) ? 'bg-red-100 text-red-600 hover:bg-red-200' : 'bg-pastel-blue hover:bg-pastel-blue-dark text-white'">
+                                        
+                                        <svg x-show="!$store.cart.has({{ $product->id }})" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+
+                                         <span x-text="$store.cart.has({{ $product->id }}) ? 'Remove from Cart' : 'Add to Cart'"></span>
+                                    </button>
+                                </div>
+
                                 <div class="prose prose-slate mb-8 max-h-[300px] overflow-y-auto pr-4 custom-scrollbar">
                                     <div class="text-slate-600 leading-relaxed">{!! $product->description !!}</div>
                                 </div>
