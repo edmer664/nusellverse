@@ -63,7 +63,11 @@
                                 <h3 class="text-3xl font-bold text-slate-900 mb-2">{{ $product->name }}</h3>
                                 <div class="flex items-center gap-2 mb-6">
                                     <span class="text-2xl font-bold text-pastel-blue">PHP {{ number_format($product->price, 2) }}</span>
-                                    <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded-full uppercase tracking-wide">In Stock</span>
+                                    @if($product->quantity > 0)
+                                        <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-1 rounded-full uppercase tracking-wide">In Stock ({{ $product->quantity }} left)</span>
+                                    @else
+                                        <span class="text-xs font-bold bg-red-100 text-red-700 px-2 py-1 rounded-full uppercase tracking-wide">Out of Stock</span>
+                                    @endif
                                 </div>
                                 
                                 <div class="prose prose-slate mb-8 max-h-[300px] overflow-y-auto pr-4 custom-scrollbar">

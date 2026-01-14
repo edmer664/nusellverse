@@ -12,7 +12,13 @@ class Product extends Model
         'description',
         'price',
         'image',
+        'quantity',
     ];
+
+    public function isAvailable(): bool
+    {
+        return $this->quantity > 0;
+    }
 
     public function store()
     {

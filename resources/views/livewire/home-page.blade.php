@@ -39,10 +39,19 @@
                                 <span class="bg-pastel-yellow text-pastel-blue-dark px-3 py-1 rounded-full text-sm font-bold uppercase tracking-wide">Featured</span>
                                 <h3 class="text-4xl md:text-5xl font-bold text-slate-800">{{ $product->name }}</h3>
                                 <p class="text-lg text-slate-600 line-clamp-2">{!! $product->description !!}</p>
-                                <div class="text-3xl font-bold text-pastel-blue">PHP {{ number_format($product->price, 2) }}</div>
-                                <button @click="$dispatch('open-product-modal', { productId: {{ $product->id }} })" class="inline-block bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg cursor-pointer">
-                                    View Details
-                                </button>
+                                <div class="flex flex-col gap-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="text-3xl font-bold text-pastel-blue">PHP {{ number_format($product->price, 2) }}</div>
+                                        @if($product->quantity > 0)
+                                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">In Stock</span>
+                                        @else
+                                            <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-bold">Out of Stock</span>
+                                        @endif
+                                    </div>
+                                    <button @click="$dispatch('open-product-modal', { productId: {{ $product->id }} })" class="inline-block w-max bg-pastel-blue hover:bg-pastel-blue-dark text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg cursor-pointer">
+                                        View Details
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

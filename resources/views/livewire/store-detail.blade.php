@@ -61,8 +61,13 @@
                 <div @click="$dispatch('open-product-modal', { productId: {{ $product->id }} })" 
                      class="group bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-slate-100 cursor-pointer">
                     <div class="h-56 bg-white relative overflow-hidden flex items-center justify-center p-4">
+                        <div class="absolute top-2 left-2 z-10">
+                            @if($product->quantity <= 0)
+                                <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded shadow-sm">Out of Stock</span>
+                            @endif
+                        </div>
                         @if($product->image)
-                            <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500">
+                            <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500 {{ $product->quantity <= 0 ? 'grayscale opacity-75' : '' }}">
                         @else
                            <div class="text-pastel-blue-dark bg-slate-50 w-full h-full flex items-center justify-center rounded-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 opacity-50">
@@ -79,12 +84,21 @@
                         <p class="text-slate-500 text-xs mb-3 line-clamp-2">{{ \Str::limit(strip_tags($product->description), 200) }}</p>
                         <div class="flex items-center justify-between">
                             <span class="text-xl font-bold text-pastel-blue-dark">PHP {{ number_format($product->price, 2) }}</span>
-                            <button class="bg-pastel-cream hover:bg-pastel-yellow text-slate-700 p-2 rounded-full transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                </svg>
-                            </button>
+                            @if($product->quantity > 0)
+                                <button class="bg-pastel-cream hover:bg-pastel-yellow text-slate-700 p-2 rounded-full transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    </svg>
+                                </button>
+                            @else
+                                <button disabled class="bg-slate-100 text-slate-400 cursor-not-allowed p-2 rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                    </svg>
+                                </button>
+                            @endif
                         </div>
                     </div>
                 </div>

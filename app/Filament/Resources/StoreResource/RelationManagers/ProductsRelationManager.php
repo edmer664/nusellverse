@@ -26,6 +26,11 @@ class ProductsRelationManager extends RelationManager
                     ->required()
                     ->numeric()
                     ->prefix('$'),
+                Forms\Components\TextInput::make('quantity')
+                    ->required()
+                    ->numeric()
+                    ->default(0)
+                    ->minValue(0),
                 Forms\Components\FileUpload::make('image')
                     ->image()
                     ->disk('public')
