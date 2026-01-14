@@ -25,6 +25,7 @@
                 <nav class="hidden md:flex items-center gap-8 text-white font-medium">
                     <a href="{{ route('home') }}" class="hover:text-pastel-yellow transition-colors">Home</a>
                     <a href="{{ route('about') }}" class="hover:text-pastel-yellow transition-colors">About</a>
+                    <a href="{{ route('faqs') }}" class="hover:text-pastel-yellow transition-colors">FAQs</a>
                 </nav>
 
                 {{-- Search & Mobile Menu --}}
@@ -107,6 +108,7 @@
             <div x-show="mobileMenuOpen" style="display: none;" x-transition class="md:hidden bg-pastel-blue border-t border-white/10 text-white p-4 space-y-4">
                 <a href="{{ route('home') }}" class="block hover:text-pastel-yellow transition-colors">Home</a>
                 <a href="{{ route('about') }}" class="block hover:text-pastel-yellow transition-colors">About</a>
+                <a href="{{ route('faqs') }}" class="block hover:text-pastel-yellow transition-colors">FAQs</a>
                 <div class="pt-2">
                     <livewire:global-search />
                 </div>

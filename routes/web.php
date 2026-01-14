@@ -11,5 +11,6 @@ Route::post('/stores/{store}/reviews', [ReviewController::class, 'store'])
     ->name('stores.reviews.store');
 
 Route::view('/about', 'pages.about')->name('about');
+Route::view('/faqs', 'pages.faqs')->name('faqs');
 Route::view('/terms', 'pages.terms')->name('terms');
 Route::view('/privacy', 'pages.privacy')->name('privacy');
