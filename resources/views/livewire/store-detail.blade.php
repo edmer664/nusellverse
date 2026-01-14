@@ -99,5 +99,93 @@
         </div>
     </section>
 
+    {{-- Reviews Section --}}
+    <section class="max-w-2xl mx-auto mt-16 pt-16 border-t border-slate-200">
+        <h2 class="text-3xl font-bold text-slate-800 mb-8 text-center">Leave a Review</h2>
+
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-200 text-green-700 px-4 py-3 rounded relative mb-6">
+                {{ session('success') }}
+            </div>
+        @endif
+        
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-200 text-red-700 px-4 py-3 rounded relative mb-6">
+                 <ul class="list-disc list-inside">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('stores.reviews.store', $store) }}" method="POST" class="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+            @csrf
+            
+            <div class="mb-6">
+                <label class="block text-sm font-bold text-slate-700 mb-2">Rating</label>
+                <div class="flex items-center gap-4 flex-wrap">
+                    @foreach(range(1, 5) as $rating)
+                         <label class="cursor-pointer flex items-center gap-1 p-2 rounded hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-colors">
+                            <input type="radio" name="rating" value="{{ $rating }}" class="text-pastel-blue focus:ring-pastel-blue" {{ old('rating') == $rating ? 'checked' : '' }}>
+                            <span class="font-medium text-slate-600">{{ $rating }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-yellow-500">
+                                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                            </svg>
+                         </label>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label for="comment" class="block text-sm font-bold text-slate-700 mb-2">Your Review (Optional)</label>
+                <textarea name="comment" id="comment" rows="4" class="w-full rounded-lg border-slate-300 focus:border-pastel-blue focus:ring-pastel-blue" placeholder="Share your experience...">{{ old('comment') }}</textarea>
+            </div>
+
+            <div class="flex items-center justify-between">
+                 <p class="text-xs text-slate-400">Guests are limited to 1 review per minute.</p>
+                 <button type="submit" class="bg-slate-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Submit Review
+                </button>
+            </div>
+        </form>
+
+        <div class="mt-12">
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">Customer Reviews ({{ $reviews->count() }})</h3>
+            
+            <div class="space-y-6">
+                @forelse($reviews as $review)
+                    <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 font-bold">
+                                    G
+                                </div>
+                                <div>
+                                    <div class="font-bold text-slate-700">Guest User</div>
+                                    <div class="text-xs text-slate-400">{{ $review->created_at->diffForHumans() }}</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-1 bg-yellow-50 text-yellow-700 px-2 py-1 rounded-md text-sm font-semibold">
+                                <span>{{ $review->rating }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-yellow-500">
+                                    <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                        
+                        @if($review->comment)
+                            <p class="text-slate-600 leading-relaxed">{{ $review->comment }}</p>
+                        @endif
+                    </div>
+                @empty
+                    <div class="text-center py-8 text-slate-500 bg-slate-50 rounded-lg">
+                        No reviews yet. Be the first to review!
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </section>
+
     @livewire('product-modal')
 </div>

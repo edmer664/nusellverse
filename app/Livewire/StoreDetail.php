@@ -23,8 +23,11 @@ class StoreDetail extends Component
             ->when($this->maxPrice, fn($query) => $query->where('price', '<=', $this->maxPrice))
             ->get();
 
+        $reviews = $this->store->reviews()->latest()->get();
+
         return view('livewire.store-detail', [
             'products' => $products,
+            'reviews' => $reviews,
         ]);
     }
 }

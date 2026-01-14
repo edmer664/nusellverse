@@ -12,7 +12,7 @@
             init() { setInterval(() => this.next(), 5000) }
         }">
             {{-- Slides --}}
-            <div class="relative h-[400px] md:h-[500px]">
+            <div class="relative h-[600px] md:h-[500px] ">
                 @foreach($featuredProducts as $index => $product)
                     <div class="absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center justify-center bg-pastel-blue-light/20"
                         x-show="activeSlide === {{ $index }}"
@@ -26,7 +26,7 @@
                         <div class="container mx-auto px-12 flex flex-col md:flex-row items-center gap-8">
                             <div class="w-full md:w-1/2 flex justify-center">
                                 @if($product->image)
-                                    <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="max-h-[300px] md:max-h-[400px] object-contain drop-shadow-xl rounded-lg">
+                                    <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="max-h-[200px] md:max-h-[400px] object-contain drop-shadow-xl rounded-lg">
                                 @else
                                     <div class="w-full h-[300px] bg-white/50 rounded-lg flex items-center justify-center text-pastel-blue-dark">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-24 h-24">
